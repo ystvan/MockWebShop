@@ -1,0 +1,9 @@
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\bin\Debug\netcoreapp1.0\MockyAPI.deps.json
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\bin\Debug\netcoreapp1.0\MockyAPI.runtimeconfig.json
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\bin\Debug\netcoreapp1.0\MockyAPI.runtimeconfig.dev.json
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\bin\Debug\netcoreapp1.0\MockyAPI.dll
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\obj\Debug\netcoreapp1.0\MockyAPI.AssemblyInfo.cs
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\bin\Debug\netcoreapp1.0\MockyAPI.pdb
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\obj\Debug\netcoreapp1.0\MockyAPI.dll
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\obj\Debug\netcoreapp1.0\MockyAPI.pdb
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyAPI\obj\Debug\netcoreapp1.0\MockyAPI.csprojResolveAssemblyReference.cache
