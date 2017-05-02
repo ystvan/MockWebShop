@@ -9367,10 +9367,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\istvanmarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyAPI\\MockyAPI.csproj",
+      "projectUniqueName": "C:\\Users\\IstvanMarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyAPI\\MockyAPI.csproj",
       "projectName": "MockyAPI",
-      "projectPath": "c:\\users\\istvanmarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyAPI\\MockyAPI.csproj",
-      "outputPath": "c:\\users\\istvanmarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyAPI\\obj\\",
+      "projectPath": "C:\\Users\\IstvanMarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyAPI\\MockyAPI.csproj",
+      "outputPath": "C:\\Users\\IstvanMarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyAPI\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.0"

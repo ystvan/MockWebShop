@@ -8415,10 +8415,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\istvanmarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyShopClient\\MockyShopClient.csproj",
+      "projectUniqueName": "C:\\Users\\IstvanMarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyShopClient\\MockyShopClient.csproj",
       "projectName": "MockyShopClient",
-      "projectPath": "c:\\users\\istvanmarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyShopClient\\MockyShopClient.csproj",
-      "outputPath": "c:\\users\\istvanmarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyShopClient\\obj\\",
+      "projectPath": "C:\\Users\\IstvanMarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyShopClient\\MockyShopClient.csproj",
+      "outputPath": "C:\\Users\\IstvanMarki\\documents\\visual studio 2017\\Projects\\MockyWebStore\\MockyShopClient\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.0"
