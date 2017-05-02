@@ -9,7 +9,7 @@ namespace MockyAPI.Contexts
 {
     public class ProductsContext : DbContext
     {
-        public ProductsContext(DbContextOptions<ProductsContext> options) : base(options) { }
+        public ProductsContext(DbContextOptions<ProductsContext> options) : base(options) { Database.EnsureCreated(); }
 
         //default constructor
         public ProductsContext() { }
