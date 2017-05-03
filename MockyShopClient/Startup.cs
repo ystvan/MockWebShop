@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MockyShopClient.Data;
 
 namespace MockyShopClient
 {
@@ -60,6 +62,13 @@ namespace MockyShopClient
                 options.Filters.Add(new RequireHttpsAttribute());
             });
 
+            services.AddDbContext<ApplicationDbContext>(options =>
+             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
             services.AddMvc();
         }
 
@@ -77,6 +86,14 @@ namespace MockyShopClient
                 app.UseDeveloperExceptionPage();
             }
 
+            //TODO: add some static content!
+            //rendering any static files content it can be found under the 'wwwroot' folder
+            app.UseFileServer();
+            app.UseStaticFiles();
+
+            //registering it before the MVC middleware
+            app.UseIdentity();
+
             //We can define the route patterns that the ASP.NET Core MVC middleware should be listening to
             app.UseMvc(routes =>
             {
@@ -84,9 +101,8 @@ namespace MockyShopClient
                     "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //TODO: add some static content!
-            //rendering any static files content it can be found under the 'wwwroot' folder
-            app.UseFileServer();
+            
+            
         }
     }
 }

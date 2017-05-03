@@ -7,3 +7,5 @@ C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockySh
 C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyShopClient\obj\Debug\netcoreapp1.0\MockyShopClient.AssemblyInfo.cs
 C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyShopClient\obj\Debug\netcoreapp1.0\MockyShopClient.dll
 C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyShopClient\obj\Debug\netcoreapp1.0\MockyShopClient.pdb
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyShopClient\bin\Debug\netcoreapp1.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\MockyShopClient\bin\Debug\netcoreapp1.0\Microsoft.EntityFrameworkCore.SqlServer.xml

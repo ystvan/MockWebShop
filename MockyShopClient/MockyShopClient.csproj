@@ -5,17 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Content Include="wwwroot\js\application-role-index.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ViewComponents\" />
-    <Folder Include="Views\" />
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer">
+      <HintPath>..\..\..\..\..\.nuget\packages\microsoft.entityframeworkcore.sqlserver\1.1.1\lib\netstandard1.3\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
