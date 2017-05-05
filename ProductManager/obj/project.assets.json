@@ -141,12 +141,13 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.Cookies/1.0.2": {
+      "Microsoft.AspNetCore.Authentication.Cookies/1.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication": "1.0.2",
-          "Microsoft.Extensions.Options": "1.0.2",
-          "Microsoft.Extensions.WebEncoders": "1.0.2"
+          "Microsoft.AspNetCore.Authentication": "1.1.1",
+          "Microsoft.Extensions.Options": "1.1.1",
+          "Microsoft.Extensions.WebEncoders": "1.1.1",
+          "NETStandard.Library": "1.6.1"
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Cookies.dll": {}
@@ -183,12 +184,13 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.OAuth.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authorization/1.0.2": {
+      "Microsoft.AspNetCore.Authorization/1.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Logging.Abstractions": "1.0.2",
-          "Microsoft.Extensions.Options": "1.0.2",
-          "System.Security.Claims": "4.0.1"
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.1",
+          "Microsoft.Extensions.Options": "1.1.1",
+          "NETStandard.Library": "1.6.1",
+          "System.Security.Claims": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.AspNetCore.Authorization.dll": {}
@@ -4462,16 +4464,16 @@
         "microsoft.aspnetcore.authentication.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.Cookies/1.0.2": {
-      "sha512": "oPzfG+B6N0GMwtKwHUMhsLpFSq4i888/YGEQJihiAQIoTPxd8vKbxESXYYqHAlWDIeBeV4C2EKsn4A0eeGlIsA==",
+    "Microsoft.AspNetCore.Authentication.Cookies/1.1.1": {
+      "sha512": "aTfDW12j//pbSiTy+9CGjOQaiW6LFHEilipldbpjZQfISAmcjDFdYibPzbMcbW0BxPAan/zYPU9hYM8Ldh/Rfg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.cookies/1.0.2",
+      "path": "microsoft.aspnetcore.authentication.cookies/1.1.1",
       "files": [
         "lib/net451/Microsoft.AspNetCore.Authentication.Cookies.dll",
         "lib/net451/Microsoft.AspNetCore.Authentication.Cookies.xml",
         "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Cookies.dll",
         "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Cookies.xml",
-        "microsoft.aspnetcore.authentication.cookies.1.0.2.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.cookies.1.1.1.nupkg.sha512",
         "microsoft.aspnetcore.authentication.cookies.nuspec"
       ]
     },
@@ -4501,16 +4503,16 @@
         "microsoft.aspnetcore.authentication.oauth.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authorization/1.0.2": {
-      "sha512": "E+awj6d91bTe6uOGZdiWl0KL9VCr2Deq6Av3Ip/t0HT2zgF+KI8z4AtFNOSc14mumpulbC5lLthfyw/n+P2OFg==",
+    "Microsoft.AspNetCore.Authorization/1.1.1": {
+      "sha512": "QRDu8FMr2SYIYUqzLnqdXx2FclZ79SLLjhxV9mQ8JUnp/Xl8J/p26u6E39Xx1lTdod7waxIY7NOY0OoAmz3xjQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authorization/1.0.2",
+      "path": "microsoft.aspnetcore.authorization/1.1.1",
       "files": [
         "lib/net451/Microsoft.AspNetCore.Authorization.dll",
         "lib/net451/Microsoft.AspNetCore.Authorization.xml",
         "lib/netstandard1.3/Microsoft.AspNetCore.Authorization.dll",
         "lib/netstandard1.3/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.1.0.2.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.1.1.1.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
@@ -11139,8 +11141,9 @@
     ".NETCoreApp,Version=v1.0": [
       "Microsoft.ApplicationInsights.AspNetCore >= 2.0.0",
       "Microsoft.AspNetCore >= 1.0.4",
-      "Microsoft.AspNetCore.Authentication.Cookies >= 1.0.2",
+      "Microsoft.AspNetCore.Authentication.Cookies >= 1.1.1",
       "Microsoft.AspNetCore.Authentication.Facebook >= 1.1.1",
+      "Microsoft.AspNetCore.Authorization >= 1.1.1",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 1.0.2",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 1.0.2",
       "Microsoft.AspNetCore.Mvc >= 1.0.3",
@@ -11190,7 +11193,7 @@
           },
           "Microsoft.AspNetCore.Authentication.Cookies": {
             "target": "Package",
-            "version": "1.0.2"
+            "version": "[1.1.1, )"
           },
           "Microsoft.Extensions.Logging.Debug": {
             "target": "Package",
@@ -11256,6 +11259,10 @@
           "Microsoft.AspNetCore.StaticFiles": {
             "target": "Package",
             "version": "1.0.2"
+          },
+          "Microsoft.AspNetCore.Authorization": {
+            "target": "Package",
+            "version": "1.1.1"
           }
         },
         "imports": [
