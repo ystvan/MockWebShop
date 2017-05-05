@@ -23,6 +23,14 @@ namespace MockyShopClient.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            //List<ApplicationRoleListViewModel> model = new List<ApplicationRoleListViewModel>();
+            //model = roleManager.Roles.Select(r => new ApplicationRoleListViewModel
+            //{
+            //    RoleName = r.Name,
+            //    Id = r.Id,
+            //    Description = r.Description,
+            //    NumberOfUsers = r.Users.Count
+            //}).ToList();
             List<ApplicationRoleListViewModel> model = new List<ApplicationRoleListViewModel>();
             model = roleManager.Roles.Select(r => new
             {
@@ -101,7 +109,7 @@ namespace MockyShopClient.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteApplicationRole(string id, FormCollection form)
+        public async Task<IActionResult> DeleteApplicationRole(string id, IFormCollection form)
         {
             if (!String.IsNullOrEmpty(id))
             {
