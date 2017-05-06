@@ -1,4 +1,5 @@
-# :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat:
+# GitHub supports emojis
+:octocat: :alien: :see_no_evil: :hear_no_evil: :speak_no_evil: :rage2: :man_with_turban:
 
 # Brief Description
 <p>This repository contains the following assignment for:<br>
