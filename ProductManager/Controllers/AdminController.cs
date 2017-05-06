@@ -83,7 +83,7 @@ namespace ProductManager.Controllers
 
         public async Task<IActionResult> Edit(string id)
         {
-            AppUser user = await userManager.FindByIdAsync(id);
+            ApplicationUser user = await userManager.FindByIdAsync(id);
             if (user != null)
             {
                 return View(user);
