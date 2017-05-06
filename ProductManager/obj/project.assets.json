@@ -2330,6 +2330,20 @@
           }
         }
       },
+      "Sendgrid/9.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/SendGrid.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/SendGrid.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6409,6 +6423,21 @@
         "runtime.win7-x86.runtime.native.system.data.sqlclient.sni.4.0.1.nupkg.sha512",
         "runtime.win7-x86.runtime.native.system.data.sqlclient.sni.nuspec",
         "runtimes/win7-x86/native/sni.dll"
+      ]
+    },
+    "Sendgrid/9.2.0": {
+      "sha512": "9GigQCb8RbotbdcfL9ZRhrdveUun7WzPKDMmmXPw60pOLnWpWupoKvKubnsr49j7+t+kpd0hYXOd8g5EaRvrVg==",
+      "type": "package",
+      "path": "sendgrid/9.2.0",
+      "files": [
+        "lib/net452/SendGrid.dll",
+        "lib/net452/SendGrid.pdb",
+        "lib/net452/SendGrid.xml",
+        "lib/netstandard1.3/SendGrid.dll",
+        "lib/netstandard1.3/SendGrid.pdb",
+        "lib/netstandard1.3/SendGrid.xml",
+        "sendgrid.9.2.0.nupkg.sha512",
+        "sendgrid.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -11157,6 +11186,7 @@
       "Microsoft.NETCore.App >= 1.0.4",
       "Microsoft.VisualStudio.Web.BrowserLink >= 1.0.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 1.0.0",
+      "SendGrid >= 9.2.0",
       "Twilio >= 5.4.0"
     ]
   },
@@ -11193,7 +11223,7 @@
           },
           "Microsoft.AspNetCore.Authentication.Cookies": {
             "target": "Package",
-            "version": "[1.1.1, )"
+            "version": "1.1.1"
           },
           "Microsoft.Extensions.Logging.Debug": {
             "target": "Package",
@@ -11238,6 +11268,10 @@
           "Microsoft.Extensions.Configuration.UserSecrets": {
             "target": "Package",
             "version": "1.0.2"
+          },
+          "SendGrid": {
+            "target": "Package",
+            "version": "9.2.0"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
