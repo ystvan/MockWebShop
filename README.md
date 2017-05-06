@@ -19,7 +19,7 @@
 # How to Run & Deploy
 <ul>
 <li>
-  <p>You need to restore the .NET Core packages which stored in the <code>.csproj</code> file<p><br>
+  <p>You need to restore the .NET Core packages which stored in the <code>.csproj</code> file<p>
   <p>Open a terminal or relevant command line tool from the project folder, which consists the file above</p>
   <pre>
   dotnet restore
