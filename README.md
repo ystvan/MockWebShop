@@ -15,3 +15,20 @@
 <li>Live help chat with a fake customer service chatbot</li>
 <li>Basic Bootstrap</li>
 </ul>
+
+# How to Run & Deploy
+<ul>
+<li>
+  <p>You need to restore the .NET Core packages which stored in the <code>.csproj</code> file<p><br>
+  <p>Open a terminal or relevant command line tool from the project folder, which consists the file above</p>
+  <pre>
+  dotnet restore
+  npm install
+  bower install
+  dotnet ef database update
+  dotnet run
+  </pre>
+</li>
+<li>Preferred IDE: Visual Studio 2017</li>
+</ul>
+
