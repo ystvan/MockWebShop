@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockyShopClient", "MockySho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockyAPI", "MockyAPI\MockyAPI.csproj", "{A4C780D3-2AA8-4961-8366-62C366CBD8DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManager", "ProductManager\ProductManager.csproj", "{B6065538-0E30-4BE3-BFBA-15F907F5EA1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A4C780D3-2AA8-4961-8366-62C366CBD8DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4C780D3-2AA8-4961-8366-62C366CBD8DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4C780D3-2AA8-4961-8366-62C366CBD8DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6065538-0E30-4BE3-BFBA-15F907F5EA1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6065538-0E30-4BE3-BFBA-15F907F5EA1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6065538-0E30-4BE3-BFBA-15F907F5EA1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6065538-0E30-4BE3-BFBA-15F907F5EA1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
