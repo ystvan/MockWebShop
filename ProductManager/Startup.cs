@@ -54,7 +54,11 @@ namespace ProductManager
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthorization();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdministratorOnly", policy => policy.RequireRole("Administrator"));
+                options.AddPolicy("EmployeeId", policy => policy.RequireClaim("EmployeeId"));
+            });
 
             services.AddMvc(options =>
             {
