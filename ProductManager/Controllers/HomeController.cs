@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProductManager.Controllers
 {
-    [Authorize(Policy = "AdministratorOnly")]
-    [Authorize(Policy = "EmployeeId")]
+
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -16,17 +15,20 @@ namespace ProductManager.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Contact()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        public IActionResult Contact()
+        [Authorize(Roles = "Admins")]
+        public IActionResult Admin()
         {
-            ViewData["Message"] = "Your contact page.";
+            return View();
+        }
 
+        [Authorize(Roles = "Admins")]
+        public IActionResult RoleAdmin()
+        {
             return View();
         }
 
@@ -34,5 +36,7 @@ namespace ProductManager.Controllers
         {
             return View();
         }
+
+
     }
 }
