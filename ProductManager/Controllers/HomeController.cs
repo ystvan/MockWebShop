@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProductManager.Controllers
 {
-    [Authorize(Policy = "AdministratorOnly")]
-    [Authorize(Policy = "EmployeeId")]
+  
     public class HomeController : Controller
     {
         public IActionResult Index()
