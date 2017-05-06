@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -20,8 +16,8 @@ namespace MockyAPI
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddJsonFile("appsettings.json", false, true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -31,8 +27,6 @@ namespace MockyAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-
             //Allow cross domain calls (our client asp web app in this case)
             services.AddCors(options =>
             {
@@ -45,7 +39,8 @@ namespace MockyAPI
 
             // Add framework services.
             services.AddMvc()
-                    .AddJsonOptions(a => a.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+                .AddJsonOptions(
+                    a => a.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
             services.AddDbContext<ProductsContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

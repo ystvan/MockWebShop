@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MockyAPI.Models
 {
@@ -10,11 +7,11 @@ namespace MockyAPI.Models
     {
         [Key]
         public Guid Id { get; set; }
-        public String Name { get; set; }
-        public String Description { get; set; }
-        public decimal Price { get; set; }
-        public String Category { get; set; }
-        public bool IsAvailable { get; set; }
 
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public string Category { get; set; }
+        public bool IsAvailable { get; set; }
     }
 }

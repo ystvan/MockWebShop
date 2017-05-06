@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using MockyAPI.Contexts;
 using MockyAPI.Models;
 
@@ -11,7 +10,7 @@ namespace MockyAPI.Repository
     {
         //private static List<Product> _productsList = new List<Product>();
 
-        private ProductsContext _context;
+        private readonly ProductsContext _context;
 
         public ProductsRepository(ProductsContext context)
         {
@@ -49,9 +48,7 @@ namespace MockyAPI.Repository
 
             var productToRemove = _context.Products.SingleOrDefault(p => p.Id == id);
             if (productToRemove != null)
-            {
                 _context.Products.Remove(productToRemove);
-            }
             _context.SaveChanges();
         }
 
@@ -79,7 +76,6 @@ namespace MockyAPI.Repository
                 productToUpdate.IsAvailable = product.IsAvailable;
             }
             _context.SaveChanges();
-
         }
     }
 }

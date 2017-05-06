@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -12,11 +10,11 @@ using ProductManager.Models.AdminViewModels;
 
 namespace ProductManager.Controllers
 {
-    [Authorize(Roles ="Admins")]
+    [Authorize(Roles = "Admins")]
     public class RoleAdminController : Controller
     {
-        private RoleManager<IdentityRole> roleManager;
-        private UserManager<ApplicationUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public RoleAdminController(RoleManager<IdentityRole> roleMgr, UserManager<ApplicationUser> userMgr)
         {
@@ -26,39 +24,31 @@ namespace ProductManager.Controllers
 
         public ViewResult Index() => View(roleManager.Roles);
         public IActionResult Create() => View();
+
         [HttpPost]
-        public async Task<IActionResult> Create([Required]string name)
+        public async Task<IActionResult> Create([Required] string name)
         {
             if (ModelState.IsValid)
             {
-                IdentityResult result
-                = await roleManager.CreateAsync(new IdentityRole(name));
+                var result
+                    = await roleManager.CreateAsync(new IdentityRole(name));
                 if (result.Succeeded)
-                {
                     return RedirectToAction("Index");
-                }
-                else
-                {
-                    AddErrorsFromResult(result);
-                }
+                AddErrorsFromResult(result);
             }
             return View(name);
         }
+
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
-            IdentityRole role = await roleManager.FindByIdAsync(id);
+            var role = await roleManager.FindByIdAsync(id);
             if (role != null)
             {
-                IdentityResult result = await roleManager.DeleteAsync(role);
+                var result = await roleManager.DeleteAsync(role);
                 if (result.Succeeded)
-                {
                     return RedirectToAction("Index");
-                }
-                else
-                {
-                    AddErrorsFromResult(result);
-                }
+                AddErrorsFromResult(result);
             }
             else
             {
@@ -69,13 +59,14 @@ namespace ProductManager.Controllers
 
         public async Task<IActionResult> Edit(string id)
         {
-            IdentityRole role = await roleManager.FindByIdAsync(id);
-            List<ApplicationUser> members = new List<ApplicationUser>();
-            List<ApplicationUser> nonMembers = new List<ApplicationUser>();
-            foreach (ApplicationUser user in userManager.Users)
+            var role = await roleManager.FindByIdAsync(id);
+            var members = new List<ApplicationUser>();
+            var nonMembers = new List<ApplicationUser>();
+            foreach (var user in userManager.Users)
             {
                 var list = await userManager.IsInRoleAsync(user, role.Name)
-                ? members : nonMembers;
+                    ? members
+                    : nonMembers;
                 list.Add(user);
             }
             return View(new UserViewModels.RoleEditModel
@@ -85,55 +76,45 @@ namespace ProductManager.Controllers
                 NonMembers = nonMembers
             });
         }
+
         [HttpPost]
         public async Task<IActionResult> Edit(UserViewModels.RoleModificationModel model)
         {
             IdentityResult result;
             if (ModelState.IsValid)
             {
-                foreach (string userId in model.IdsToAdd ?? new string[] { })
+                foreach (var userId in model.IdsToAdd ?? new string[] {})
                 {
-                    ApplicationUser user = await userManager.FindByIdAsync(userId);
+                    var user = await userManager.FindByIdAsync(userId);
                     if (user != null)
                     {
                         result = await userManager.AddToRoleAsync(user,
-                        model.RoleName);
+                            model.RoleName);
                         if (!result.Succeeded)
-                        {
                             AddErrorsFromResult(result);
-                        }
                     }
                 }
-                foreach (string userId in model.IdsToDelete ?? new string[] { })
+                foreach (var userId in model.IdsToDelete ?? new string[] {})
                 {
-                    ApplicationUser user = await userManager.FindByIdAsync(userId);
+                    var user = await userManager.FindByIdAsync(userId);
                     if (user != null)
                     {
                         result = await userManager.RemoveFromRoleAsync(user,
-                        model.RoleName);
+                            model.RoleName);
                         if (!result.Succeeded)
-                        {
                             AddErrorsFromResult(result);
-                        }
                     }
                 }
             }
             if (ModelState.IsValid)
-            {
                 return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                return await Edit(model.RoleId);
-            }
+            return await Edit(model.RoleId);
         }
 
         private void AddErrorsFromResult(IdentityResult result)
         {
-            foreach (IdentityError error in result.Errors)
-            {
+            foreach (var error in result.Errors)
                 ModelState.AddModelError("", error.Description);
-            }
         }
     }
 }
