@@ -1,7 +1,11 @@
-# :octocat:
+# :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat: :octocat:
 
+# Brief Description
+<p>This repository contains the following assignment for:<br>
+<strong>ErhvervsAkademi Sjælland: ASP.NET Core MVC</strong> <br>
+lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistant Professor)</p>
 
-# Requirements passed as per below:
+## Requirements passed as per below:
 
 <ul>
 <li>Two factor Authentication via Twillio </li><br>
