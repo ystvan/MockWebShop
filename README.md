@@ -16,6 +16,7 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 <img src="https://cdn.worldvectorlogo.com/logos/sendgrid.svg" height="50" width="auto"><br>
 <li>Auth-Auth: ASP.NET Core MVC: <strong>Authentication</strong> and Role Based <strong>Authorisation</strong> with Identity</li>
 <li>ASP.NET Core WebAPI with Entity Framework Core, full CRUD operations</li>
+<li>Self-Signed SSL certificate and HTTPS</li>
 <li>Live help chat with a fake customer service chatbot</li>
 <li>Basic Bootstrap</li>
 </ul>
