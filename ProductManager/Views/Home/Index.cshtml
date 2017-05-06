@@ -19,3 +19,16 @@ else
         Congratulations, you have been successfully validated as a user!
     </p>
 }
+
+@if (await AuthorizationService.AuthorizeAsync(User, "AdministratorOnly"))
+{
+    <p>This paragraph is displayed because you fulfilled AdministratorOnly Policy.</p>
+
+
+    <p>Select an Admin Option:</p>
+    <li><a asp-area="" asp-controller="Admin" asp-action="Index">Edit User Accounts</a></li>
+    <li><a asp-area="" asp-controller="RoleAdmin" asp-action="Index">Manage User Roles</a></li>
+
+}
+
+
