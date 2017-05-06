@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProductManager.Data.Migrations
@@ -9,35 +8,35 @@ namespace ProductManager.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<DateTime>(
-                name: "CreatedDate",
-                table: "AspNetRoles",
+                "CreatedDate",
+                "AspNetRoles",
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
             migrationBuilder.AddColumn<string>(
-                name: "Description",
-                table: "AspNetRoles",
+                "Description",
+                "AspNetRoles",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "IPAddress",
-                table: "AspNetRoles",
+                "IPAddress",
+                "AspNetRoles",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "CreatedDate",
-                table: "AspNetRoles");
+                "CreatedDate",
+                "AspNetRoles");
 
             migrationBuilder.DropColumn(
-                name: "Description",
-                table: "AspNetRoles");
+                "Description",
+                "AspNetRoles");
 
             migrationBuilder.DropColumn(
-                name: "IPAddress",
-                table: "AspNetRoles");
+                "IPAddress",
+                "AspNetRoles");
         }
     }
 }

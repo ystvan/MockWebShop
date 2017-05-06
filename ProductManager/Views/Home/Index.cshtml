@@ -1,8 +1,7 @@
-﻿@{
+﻿@using System.Security.Claims
+@{
     ViewData["Title"] = "Home Page";
 }
-
-@using System.Security.Claims;
 
 @if (!User.Identities.Any(u => u.IsAuthenticated))
 {
@@ -26,9 +25,10 @@ else
 
 
     <p>Select an Admin Option:</p>
-    <li><a asp-area="" asp-controller="Admin" asp-action="Index">Edit User Accounts</a></li>
-    <li><a asp-area="" asp-controller="RoleAdmin" asp-action="Index">Manage User Roles</a></li>
-
+    <li>
+        <a asp-area="" asp-controller="Admin" asp-action="Index">Edit User Accounts</a>
+    </li>
+    <li>
+        <a asp-area="" asp-controller="RoleAdmin" asp-action="Index">Manage User Roles</a>
+    </li>
 }
-
-

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MockyAPI.Models;
 using MockyAPI.Repository;
@@ -13,12 +10,12 @@ namespace MockyAPI.Controllers
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
-        public IProductsRepository ProductsRepo { get; set; }
-
         public ProductsController(IProductsRepository _repo)
         {
             ProductsRepo = _repo;
         }
+
+        public IProductsRepository ProductsRepo { get; set; }
 
         [HttpGet]
         public IEnumerable<Product> GetAllProducts()
@@ -31,9 +28,7 @@ namespace MockyAPI.Controllers
         {
             var product = ProductsRepo.Find(id);
             if (product == null)
-            {
                 return NotFound();
-            }
             return new ObjectResult(product);
         }
 
@@ -41,9 +36,7 @@ namespace MockyAPI.Controllers
         public IActionResult Create([FromBody] Product product)
         {
             if (product == null)
-            {
                 return BadRequest();
-            }
             ProductsRepo.Add(product);
             return CreatedAtRoute("GetProducts", new {Controller = "Products", id = product.Id}, product);
         }
@@ -52,14 +45,10 @@ namespace MockyAPI.Controllers
         public IActionResult Update(Guid id, [FromBody] Product product)
         {
             if (product == null)
-            {
                 return BadRequest();
-            }
             var productToUpdate = ProductsRepo.Find(id);
             if (productToUpdate == null)
-            {
                 return NotFound();
-            }
             ProductsRepo.Update(product);
             return new NoContentResult();
         }

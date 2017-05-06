@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,12 +10,12 @@ namespace ProductManager.Controllers
     [Authorize(Roles = "Admins")]
     public class AdminController : Controller
     {
-        private UserManager<ApplicationUser> userManager;
-        private IUserValidator<ApplicationUser> userValidator;
-        private IPasswordValidator<ApplicationUser> passwordValidator;
-        private IPasswordHasher<ApplicationUser> passwordHasher;
+        private readonly IPasswordHasher<ApplicationUser> passwordHasher;
+        private readonly IPasswordValidator<ApplicationUser> passwordValidator;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly IUserValidator<ApplicationUser> userValidator;
 
-      public AdminController(UserManager<ApplicationUser> usrMgr, 
+        public AdminController(UserManager<ApplicationUser> usrMgr,
             IUserValidator<ApplicationUser> userValid,
             IPasswordValidator<ApplicationUser> passValid,
             IPasswordHasher<ApplicationUser> passwordHash)
@@ -27,8 +24,8 @@ namespace ProductManager.Controllers
             userValidator = userValid;
             passwordValidator = passValid;
             passwordHasher = passwordHash;
-
         }
+
         public ViewResult Index() => View(userManager.Users);
 
         public ViewResult Create() => View();
@@ -38,24 +35,17 @@ namespace ProductManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser user = new ApplicationUser
+                var user = new ApplicationUser
                 {
                     UserName = models.Name,
                     Email = models.Email
                 };
-                IdentityResult result
-                = await userManager.CreateAsync(user, models.Password);
+                var result
+                    = await userManager.CreateAsync(user, models.Password);
                 if (result.Succeeded)
-                {
                     return RedirectToAction("Index");
-                }
-                else
-                {
-                    foreach (IdentityError error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
+                foreach (var error in result.Errors)
+                    ModelState.AddModelError("", error.Description);
             }
             return View(models);
         }
@@ -63,18 +53,13 @@ namespace ProductManager.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
-            ApplicationUser user = await userManager.FindByIdAsync(id);
+            var user = await userManager.FindByIdAsync(id);
             if (user != null)
             {
-                IdentityResult result = await userManager.DeleteAsync(user);
+                var result = await userManager.DeleteAsync(user);
                 if (result.Succeeded)
-                {
                     return RedirectToAction("Index");
-                }
-                else
-                {
-                    AddErrorsFromResult(result);
-                }
+                AddErrorsFromResult(result);
             }
             else
             {
@@ -85,60 +70,46 @@ namespace ProductManager.Controllers
 
         public async Task<IActionResult> Edit(string id)
         {
-            ApplicationUser user = await userManager.FindByIdAsync(id);
+            var user = await userManager.FindByIdAsync(id);
             if (user != null)
-            {
                 return View(user);
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
+            return RedirectToAction("Index");
         }
+
         [HttpPost]
         public async Task<IActionResult> Edit(string id, string email,
-        string password)
+            string password)
         {
-            ApplicationUser user = await userManager.FindByIdAsync(id);
+            var user = await userManager.FindByIdAsync(id);
             if (user != null)
             {
                 user.Email = email;
-                IdentityResult validEmail
-                = await userValidator.ValidateAsync(userManager, user);
+                var validEmail
+                    = await userValidator.ValidateAsync(userManager, user);
                 if (!validEmail.Succeeded)
-                {
                     AddErrorsFromResult(validEmail);
-                }
                 IdentityResult validPass = null;
                 if (!string.IsNullOrEmpty(password))
                 {
                     validPass = await passwordValidator.ValidateAsync(userManager,
-                    user, password);
+                        user, password);
                     if (validPass.Succeeded)
-                    {
                         user.PasswordHash = passwordHasher.HashPassword(user,
-                        password);
-                    }
+                            password);
                     else
-                    {
                         AddErrorsFromResult(validPass);
-                    }
                 }
-                if ((validEmail.Succeeded && validPass == null)
-                || (validEmail.Succeeded
-                && password != string.Empty && validPass.Succeeded))
+                if (validEmail.Succeeded && validPass == null
+                    || validEmail.Succeeded
+                    && password != string.Empty && validPass.Succeeded)
                 {
-                    IdentityResult result = await userManager.UpdateAsync(user);
+                    var result = await userManager.UpdateAsync(user);
                     if (result.Succeeded)
-                    {
                         return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        AddErrorsFromResult(result);
-                    }
+                    AddErrorsFromResult(result);
                 }
-            } else
+            }
+            else
             {
                 ModelState.AddModelError("", "User Not Found");
             }
@@ -148,11 +119,8 @@ namespace ProductManager.Controllers
 
         private void AddErrorsFromResult(IdentityResult result)
         {
-            foreach (IdentityError error in result.Errors)
-            {
+            foreach (var error in result.Errors)
                 ModelState.AddModelError("", error.Description);
-            }
         }
-
     }
 }
