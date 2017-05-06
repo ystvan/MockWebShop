@@ -1,4 +1,4 @@
-# GitHub supports emojis
+### btw, GitHub now supports emojis...
 :octocat: :alien: :see_no_evil: :hear_no_evil: :speak_no_evil: :rage2: :man_with_turban:
 
 # Brief Description
