@@ -32,17 +32,17 @@ namespace ProductManager.Controllers
         public ViewResult Create() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Create(UserViewModel model)
+        public async Task<IActionResult> Create(UserViewModels.CreateModel models)
         {
             if (ModelState.IsValid)
             {
                 ApplicationUser user = new ApplicationUser
                 {
-                    UserName = model.Name,
-                    Email = model.Email
+                    UserName = models.Name,
+                    Email = models.Email
                 };
                 IdentityResult result
-                = await userManager.CreateAsync(user, model.Password);
+                = await userManager.CreateAsync(user, models.Password);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index");
@@ -55,7 +55,7 @@ namespace ProductManager.Controllers
                     }
                 }
             }
-            return View(model);
+            return View(models);
         }
 
         [HttpPost]

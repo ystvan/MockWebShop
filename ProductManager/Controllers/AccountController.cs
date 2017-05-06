@@ -395,7 +395,7 @@ namespace ProductManager.Controllers
                 return View("Error");
             }
 
-            var message = "Your security code is: " + code;
+            var message = "Hi, my name is Istvan.\n You are about to confirm your phone number. Insert the following code: " + code + "\n And enjoy my App!";
             if (model.SelectedProvider == "Email")
             {
                 await _emailSender.SendEmailAsync(await _userManager.GetEmailAsync(user), "Security Code", message);
