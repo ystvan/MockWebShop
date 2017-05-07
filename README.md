@@ -11,10 +11,12 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 <li>Two factor Authentication via Twillio </li><br>
 <img src="https://cdn.worldvectorlogo.com/logos/twilio-2.svg" height="50" width="auto"><br>
 <li>External Authentication Factor via Facebook, Twitter, Microsoft, Google</li><br>
-<img src="https://cdn.worldvectorlogo.com/logos/facebook.svg" height="50" width="auto"><br>
-<img src="https://cdn.worldvectorlogo.com/logos/twitter-4.svg" height="50" width="auto"><br>
-<img src="https://cdn.worldvectorlogo.com/logos/microsoft.svg" height="50" width="auto"><br>
-<img src="https://cdn.worldvectorlogo.com/logos/google-2015.svg" height="50" width="auto"><br>
+<span>
+<img src="https://cdn.worldvectorlogo.com/logos/facebook.svg" height="50" width="auto">
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Twitter_2010_logo_-_from_Commons.svg/798px-Twitter_2010_logo_-_from_Commons.svg.png" height="50" width="auto">
+<img src="https://cdn.worldvectorlogo.com/logos/microsoft.svg" height="50" width="auto">
+<img src="https://cdn.worldvectorlogo.com/logos/google-2015.svg" height="50" width="auto"></span>
+<br>
 <li>Email address validation upon new user registration and password resets</li><br>
 <img src="https://cdn.worldvectorlogo.com/logos/sendgrid.svg" height="50" width="auto"><br>
 <li>Auth-Auth: ASP.NET Core MVC: <strong>Authentication</strong> and Role Based <strong>Authorisation</strong> with Identity</li>
