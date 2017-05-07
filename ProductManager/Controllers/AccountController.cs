@@ -1,12 +1,15 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ProductManager.Data;
 using ProductManager.Models;
 using ProductManager.Models.AccountViewModels;
 using ProductManager.Services;
@@ -22,9 +25,16 @@ namespace ProductManager.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ISmsSender _smsSender;
         private readonly UserManager<ApplicationUser> _userManager;
+        //testing
+        //private readonly RoleManager<IdentityRole> _roleManager;
+        //private ApplicationDbContext _context;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
+            //testing
+            //RoleManager<IdentityRole> roleManager,
+            //ApplicationDbContext context,
+
             SignInManager<ApplicationUser> signInManager,
             IOptions<IdentityCookieOptions> identityCookieOptions,
             IEmailSender emailSender,
@@ -32,6 +42,10 @@ namespace ProductManager.Controllers
             ILoggerFactory loggerFactory)
         {
             _userManager = userManager;
+            //testing
+            //_roleManager = roleManager;
+            //_context = context;
+
             _signInManager = signInManager;
             _externalCookieScheme = identityCookieOptions.Value.ExternalCookieAuthenticationScheme;
             _emailSender = emailSender;
@@ -102,6 +116,16 @@ namespace ProductManager.Controllers
         public IActionResult Register(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            //testing
+            //List<SelectListItem> roleList = new List<SelectListItem>();
+            //var roles = _roleManager.Roles;
+            //foreach (var role in roles)
+            //{
+            //    roleList.Add(new SelectListItem { Text = role.Name, Value = role.Name });
+            //}
+            ////ViewBag.Name = new SelectList(roleList, "Name", "Name");
+            //ViewBag.Text = new SelectList(roleList, "Text", "Value");
+            
             return View();
         }
 
@@ -112,6 +136,19 @@ namespace ProductManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
+            //testing
+            //List<SelectListItem> roleList = new List<SelectListItem>();
+            //var roles = _roleManager.Roles;
+            //foreach (var role in roles)
+            //{
+            //    roleList.Add(new SelectListItem {Text = role.Name, Value = role.Name});
+            //}
+            //model.UserRoles = roleList;
+
+            //var r = new Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole();
+            //List<IdentityRole> existingRoles = _context.Roles.ToList();
+
+
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
@@ -121,6 +158,9 @@ namespace ProductManager.Controllers
                 {
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
                     // Send an email with this link
+
+                    //await this._userManager.AddToRoleAsync(user, model.UserRoles.ToString());
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new {userId = user.Id, code},
                         HttpContext.Request.Scheme);
@@ -130,6 +170,7 @@ namespace ProductManager.Controllers
                     _logger.LogInformation(3, "User created a new account with password.");
                     return RedirectToLocal(returnUrl);
                 }
+                //ViewBag.Name = new SelectList(roleList, "Name", "Name");
                 AddErrors(result);
             }
 
