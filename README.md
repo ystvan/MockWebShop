@@ -10,8 +10,11 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 <ul>
 <li>Two factor Authentication via Twillio </li><br>
 <img src="https://cdn.worldvectorlogo.com/logos/twilio-2.svg" height="50" width="auto"><br>
-<li>External Authentication Factor via Facebook</li><br>
+<li>External Authentication Factor via Facebook, Twitter, Microsoft, Google</li><br>
 <img src="https://cdn.worldvectorlogo.com/logos/facebook.svg" height="50" width="auto"><br>
+<img src="https://cdn.worldvectorlogo.com/logos/twitter-4.svg" height="50" width="auto"><br>
+<img src="https://cdn.worldvectorlogo.com/logos/microsoft.svg" height="50" width="auto"><br>
+<img src="https://cdn.worldvectorlogo.com/logos/google-2015.svg" height="50" width="auto"><br>
 <li>Email address validation upon new user registration and password resets</li><br>
 <img src="https://cdn.worldvectorlogo.com/logos/sendgrid.svg" height="50" width="auto"><br>
 <li>Auth-Auth: ASP.NET Core MVC: <strong>Authentication</strong> and Role Based <strong>Authorisation</strong> with Identity</li>
