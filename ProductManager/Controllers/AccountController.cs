@@ -359,8 +359,8 @@ namespace ProductManager.Controllers
                 return View("Error");
 
             var message =
-                "Hi, my name is Istvan.\n You are about to confirm your phone number. Insert the following code: " +
-                code + "\n And enjoy my App!";
+                "Hi, my name is Istvan.\nThanks for setting up 2FA.\nInsert the following code: " +
+                code + "\nAnd enjoy my App!";
             if (model.SelectedProvider == "Email")
                 await _emailSender.SendEmailAsync(await _userManager.GetEmailAsync(user), "Security Code", message);
             else if (model.SelectedProvider == "Phone")

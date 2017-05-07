@@ -111,7 +111,7 @@ namespace ProductManager.Controllers
             if (user == null)
                 return View("Error");
             var code = await _userManager.GenerateChangePhoneNumberTokenAsync(user, model.PhoneNumber);
-            await _smsSender.SendSmsAsync(model.PhoneNumber, "Hi! I'm Istvan. Welcom to my app! Your security code is: " + code);
+            await _smsSender.SendSmsAsync(model.PhoneNumber, "Hi! I'm Istvan. Welcome to my app! Your security code is: " + code);
             return RedirectToAction(nameof(VerifyPhoneNumber), new {model.PhoneNumber});
         }
 
