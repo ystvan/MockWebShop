@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProductManager.Models
 {
-    public class FakeProductRepository : IProductRepository
+    public class FakeProductRepository 
     {
         public IEnumerable<Product> Products => new List<Product>
         {
