@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "3a98fbae54d70e41dccaf850416e725e635449d6"
+    "signature": "6c885117161d78e4e94203e8f0a30e41ca25414a"
   },
   "compilationOptions": {
     "defines": [
@@ -32,13 +32,16 @@
           "Microsoft.AspNetCore.Authentication.Twitter": "1.1.1",
           "Microsoft.AspNetCore.Authorization": "1.1.1",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.2",
+          "Microsoft.AspNetCore.Http.Extensions": "1.1.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.2",
           "Microsoft.AspNetCore.Mvc": "1.0.3",
+          "Microsoft.AspNetCore.Session": "1.1.1",
           "Microsoft.AspNetCore.StaticFiles": "1.0.2",
           "Microsoft.EntityFrameworkCore.Design": "1.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "1.0.0",
+          "Microsoft.Extensions.Caching.Memory": "1.1.1",
           "Microsoft.Extensions.Configuration.UserSecrets": "1.0.2",
           "Microsoft.Extensions.Logging.Debug": "1.0.2",
           "Microsoft.NETCore.App": "1.0.4",
@@ -575,7 +578,7 @@
           "Microsoft.AspNetCore.Mvc.Razor": "1.0.3",
           "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.3",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.3",
-          "Microsoft.Extensions.Caching.Memory": "1.0.2",
+          "Microsoft.Extensions.Caching.Memory": "1.1.1",
           "Microsoft.Extensions.DependencyInjection": "1.0.2"
         },
         "runtime": {
@@ -704,7 +707,7 @@
       "microsoft.aspnetcore.mvc.razor.host/1.0.3": {
         "dependencies": {
           "Microsoft.AspNetCore.Razor.Runtime": "1.0.2",
-          "Microsoft.Extensions.Caching.Memory": "1.0.2",
+          "Microsoft.Extensions.Caching.Memory": "1.1.1",
           "Microsoft.Extensions.FileProviders.Physical": "1.0.1",
           "System.Collections.Concurrent": "4.3.0",
           "System.ComponentModel.TypeConverter": "4.1.0",
@@ -721,7 +724,7 @@
       "microsoft.aspnetcore.mvc.taghelpers/1.0.3": {
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Razor": "1.0.3",
-          "Microsoft.Extensions.Caching.Memory": "1.0.2",
+          "Microsoft.Extensions.Caching.Memory": "1.1.1",
           "Microsoft.Extensions.FileSystemGlobbing": "1.0.1",
           "Microsoft.Extensions.Primitives": "1.1.0"
         },
@@ -867,6 +870,22 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.Server.Kestrel.dll": {}
         }
       },
+      "microsoft.aspnetcore.session/1.1.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "1.1.1",
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.1",
+          "Microsoft.Extensions.Caching.Abstractions": "1.1.1",
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.1",
+          "Microsoft.Extensions.Options": "1.1.1",
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Session.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Session.dll": {}
+        }
+      },
       "microsoft.aspnetcore.staticfiles/1.0.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.1",
@@ -957,7 +976,7 @@
       },
       "microsoft.entityframeworkcore/1.0.3": {
         "dependencies": {
-          "Microsoft.Extensions.Caching.Memory": "1.0.2",
+          "Microsoft.Extensions.Caching.Memory": "1.1.1",
           "Microsoft.Extensions.DependencyInjection": "1.0.2",
           "Microsoft.Extensions.Logging": "1.0.2",
           "Remotion.Linq": "2.1.1",
@@ -1049,12 +1068,10 @@
           "Microsoft.EntityFrameworkCore.Design": "1.0.3"
         }
       },
-      "microsoft.extensions.caching.abstractions/1.0.2": {
+      "microsoft.extensions.caching.abstractions/1.1.1": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "1.1.0",
-          "System.Collections": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Threading.Tasks": "4.3.0"
+          "NETStandard.Library": "1.6.1"
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.Caching.Abstractions.dll": {}
@@ -1063,13 +1080,12 @@
           "lib/netstandard1.0/Microsoft.Extensions.Caching.Abstractions.dll": {}
         }
       },
-      "microsoft.extensions.caching.memory/1.0.2": {
+      "microsoft.extensions.caching.memory/1.1.1": {
         "dependencies": {
-          "Microsoft.Extensions.Caching.Abstractions": "1.0.2",
+          "Microsoft.Extensions.Caching.Abstractions": "1.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
           "Microsoft.Extensions.Options": "1.1.1",
-          "System.Linq": "4.3.0",
-          "System.Threading": "4.3.0"
+          "NETStandard.Library": "1.6.1"
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.Extensions.Caching.Memory.dll": {}
@@ -4284,6 +4300,13 @@
       "path": "microsoft.aspnetcore.server.kestrel/1.0.3",
       "hashPath": "microsoft.aspnetcore.server.kestrel.1.0.3.nupkg.sha512"
     },
+    "microsoft.aspnetcore.session/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VM7giBz158JoveFEWJVhnM2P9YiGHI92fSnYagh0nHFc4XQwcGKx7pUkYghL60SRxmMpu7uTGTEVfNxplM5now==",
+      "path": "microsoft.aspnetcore.session/1.1.1",
+      "hashPath": "microsoft.aspnetcore.session.1.1.1.nupkg.sha512"
+    },
     "microsoft.aspnetcore.staticfiles/1.0.2": {
       "type": "package",
       "serviceable": true,
@@ -4375,19 +4398,19 @@
       "path": "microsoft.entityframeworkcore.tools/1.0.0",
       "hashPath": "microsoft.entityframeworkcore.tools.1.0.0.nupkg.sha512"
     },
-    "microsoft.extensions.caching.abstractions/1.0.2": {
+    "microsoft.extensions.caching.abstractions/1.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DAfaRaTx6fzsL31iekmcwJBxNCk2rT/S0X0ylV0CBSlW5NNLYfqWBD9BxE0HT6biYi5OOgvokUSQAALMCixfbA==",
-      "path": "microsoft.extensions.caching.abstractions/1.0.2",
-      "hashPath": "microsoft.extensions.caching.abstractions.1.0.2.nupkg.sha512"
+      "sha512": "sha512-CXy3r+2KlOxh8EjHuxXqoBwgOW0EYINRdTMFIQL3JMzVfyXiSUcyWL2FLODvAsDKDPqDTyPFwqhdc5fGFzFthA==",
+      "path": "microsoft.extensions.caching.abstractions/1.1.1",
+      "hashPath": "microsoft.extensions.caching.abstractions.1.1.1.nupkg.sha512"
     },
-    "microsoft.extensions.caching.memory/1.0.2": {
+    "microsoft.extensions.caching.memory/1.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Tj+Z5r73uUv2wtAhXbnpSJr020ZxmVbazX5zDbQ9yUCS0pZ+VxhQDl/rVlceW+wfBoevLX7EM7ifAmRz33Fvww==",
-      "path": "microsoft.extensions.caching.memory/1.0.2",
-      "hashPath": "microsoft.extensions.caching.memory.1.0.2.nupkg.sha512"
+      "sha512": "sha512-a0qBfehV8RULuhOA0aGYGIvvflZBPzDkEJ8JwWlRGynig052gxToiGYFydywTuTWkQkdOrtnTE89xfpta5lXKA==",
+      "path": "microsoft.extensions.caching.memory/1.1.1",
+      "hashPath": "microsoft.extensions.caching.memory.1.1.1.nupkg.sha512"
     },
     "microsoft.extensions.commandlineutils/1.0.1": {
       "type": "package",

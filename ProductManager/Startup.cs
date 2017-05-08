@@ -65,6 +65,8 @@ namespace ProductManager
                     .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
+            services.AddMemoryCache();
+            services.AddSession();
 
             //Account lockout for protecting against brute force attacks
             services.Configure<IdentityOptions>(options =>
@@ -77,6 +79,10 @@ namespace ProductManager
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IOrderRepository, EFOrderRepository>();
 
             //Adding SendGrid and Twilio services for 2FA
             services.Configure<SMSoptions>(Configuration);
@@ -110,7 +116,7 @@ namespace ProductManager
             });
 
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseIdentity();
             app.UseFacebookAuthentication(new FacebookOptions
             {
@@ -138,9 +144,34 @@ namespace ProductManager
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    "Error", 
+                    "Error",
+                    new { controller = "Error", action = "Error" });
+
+                routes.MapRoute(
+                    null,
+                    "{category}/Page{page:int}",
+                    new {controller = "Product", action = "List"});
+
+                routes.MapRoute(
+                    null,
+                    "Page{page:int}",
+                    new { controller = "Product", action = "List", page = 1 });
+
+                routes.MapRoute(
+                    null,
+                    "{category}",
+                    new { controller = "Product", action = "List", page = 1 });
+
+                routes.MapRoute(
+                    null,
+                    "{controller}/{action}/{id?}");
+
+                routes.MapRoute(
                     "default",
                     "{controller=Home}/{action=Index}/{id?}");
             });
+            SeedData.EnsurePopulated(app);
         }
     }
 }
