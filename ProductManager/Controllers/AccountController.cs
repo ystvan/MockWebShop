@@ -117,6 +117,7 @@ namespace ProductManager.Controllers
         {
             ViewData["ReturnUrl"] = returnUrl;
             
+            //get the available roles in order to populate the dropdownlist in the view!
             List<SelectListItem> roleList = new List<SelectListItem>();
             var roles = _roleManager.Roles;
             foreach (var role in roles)
@@ -132,9 +133,9 @@ namespace ProductManager.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(RegisterViewModel model, string selectedRoles, string returnUrl = null)
         {
-            //IdentityResult identityResult;
+            
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
@@ -144,25 +145,21 @@ namespace ProductManager.Controllers
                 {
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
                     // Send an email with this link
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new {userId = user.Id, code},
-                        HttpContext.Request.Scheme);
-                    await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
-                        $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    //var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new {userId = user.Id, code},
+                    //    HttpContext.Request.Scheme);
+                    //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
+                    //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
-                    //await _userManager.AddToRoleAsync(user, model.RoleName);
+
+                    //adding user to the selected role from view 
+                    //(passed parameter: "selectedRoles" => check the view fro Register.cshtml line 36: HtmlDropDownList's first param!)
+                    await _userManager.AddToRoleAsync(user, selectedRoles);
                     
                     return RedirectToLocal(returnUrl);
                 }
-                List<SelectListItem> roleList = new List<SelectListItem>();
-                var roles = _roleManager.Roles;
-                foreach (var role in roles)
-                {
-                    roleList.Add(new SelectListItem { Text = role.Name, Value = role.Name });
-                }
-                ViewData["ListOfRoles"] = roleList;
-                //ViewBag.Name = new SelectList(roleList, "Name", "Name");
+                
                 AddErrors(result);
             }
 

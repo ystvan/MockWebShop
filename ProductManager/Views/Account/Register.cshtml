@@ -33,7 +33,7 @@
     <div class="form-group">
         <label asp-for="UserRoles" class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            @Html.DropDownList("Text", (List<SelectListItem>) ViewBag.ListOfRoles, "--Select Role --", new { @class = "form-control" })
+            @Html.DropDownList("selectedRoles", (List<SelectListItem>) ViewBag.ListOfRoles, "--Select Role --", new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
