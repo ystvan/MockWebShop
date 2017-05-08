@@ -1,12 +1,15 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ProductManager.Data;
 using ProductManager.Models;
 using ProductManager.Models.AccountViewModels;
 using ProductManager.Services;
@@ -22,9 +25,16 @@ namespace ProductManager.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ISmsSender _smsSender;
         private readonly UserManager<ApplicationUser> _userManager;
+        //testing
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private ApplicationDbContext _context;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
+            //testing
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext context,
+
             SignInManager<ApplicationUser> signInManager,
             IOptions<IdentityCookieOptions> identityCookieOptions,
             IEmailSender emailSender,
@@ -32,6 +42,10 @@ namespace ProductManager.Controllers
             ILoggerFactory loggerFactory)
         {
             _userManager = userManager;
+            //testing
+            _roleManager = roleManager;
+            _context = context;
+
             _signInManager = signInManager;
             _externalCookieScheme = identityCookieOptions.Value.ExternalCookieAuthenticationScheme;
             _emailSender = emailSender;
@@ -102,6 +116,15 @@ namespace ProductManager.Controllers
         public IActionResult Register(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            
+            //get the available roles in order to populate the dropdownlist in the view!
+            List<SelectListItem> roleList = new List<SelectListItem>();
+            var roles = _roleManager.Roles;
+            foreach (var role in roles)
+            {
+                roleList.Add(new SelectListItem { Text = role.Name, Value = role.Name });
+            }
+            ViewData["ListOfRoles"] = roleList;
             return View();
         }
 
@@ -110,8 +133,9 @@ namespace ProductManager.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(RegisterViewModel model, string selectedRoles, string returnUrl = null)
         {
+            
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
@@ -121,15 +145,21 @@ namespace ProductManager.Controllers
                 {
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
                     // Send an email with this link
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new {userId = user.Id, code},
-                        HttpContext.Request.Scheme);
-                    await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
-                        $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    //var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new {userId = user.Id, code},
+                    //    HttpContext.Request.Scheme);
+                    //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
+                    //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
+
+                    //adding user to the selected role from view 
+                    //(passed parameter: "selectedRoles" => check the view fro Register.cshtml line 36: HtmlDropDownList's first param!)
+                    await _userManager.AddToRoleAsync(user, selectedRoles);
+                    
                     return RedirectToLocal(returnUrl);
                 }
+                
                 AddErrors(result);
             }
 
@@ -359,8 +389,8 @@ namespace ProductManager.Controllers
                 return View("Error");
 
             var message =
-                "Hi, my name is Istvan.\n You are about to confirm your phone number. Insert the following code: " +
-                code + "\n And enjoy my App!";
+                "Hi, my name is Istvan.\nThanks for setting up 2FA.\nInsert the following code: " +
+                code + "\nAnd enjoy my App!";
             if (model.SelectedProvider == "Email")
                 await _emailSender.SendEmailAsync(await _userManager.GetEmailAsync(user), "Security Code", message);
             else if (model.SelectedProvider == "Phone")

@@ -169,6 +169,32 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.Google/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.OAuth": "1.1.1",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.MicrosoftAccount/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.OAuth": "1.1.1",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.OAuth/1.1.1": {
         "type": "package",
         "dependencies": {
@@ -182,6 +208,20 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.OAuth.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Twitter/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "1.1.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/1.1.1": {
@@ -4504,6 +4544,32 @@
         "microsoft.aspnetcore.authentication.facebook.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Authentication.Google/1.1.1": {
+      "sha512": "5bovr3Z/CzLgYqfpUszSA0+SuQ4jiybyE/uaNc69ZThFhzWu1lP0TEkd4ZlbPyq+Qj0fHDOQ/kcEHuts0dYtoQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/1.1.1",
+      "files": [
+        "lib/net451/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net451/Microsoft.AspNetCore.Authentication.Google.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.1.1.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.MicrosoftAccount/1.1.1": {
+      "sha512": "F1gDDY1Z793cpUmiD5C08xtIlkcUsjdkW2QaaxJcQS6VwfG6DuoVnvTydPLk8h9soZzb9gbyFa6qWYVgxZU3cg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.microsoftaccount/1.1.1",
+      "files": [
+        "lib/net451/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll",
+        "lib/net451/Microsoft.AspNetCore.Authentication.MicrosoftAccount.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.MicrosoftAccount.xml",
+        "microsoft.aspnetcore.authentication.microsoftaccount.1.1.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.microsoftaccount.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication.OAuth/1.1.1": {
       "sha512": "cS3sVKacQqNO+ZSOa1kVtJy34XCVk5vF6kE7u0Cd1AR/VC7TAjpGeHlBSNzVBfrj/W71ly/MWU4gldQZ3XzsKw==",
       "type": "package",
@@ -4515,6 +4581,19 @@
         "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.OAuth.xml",
         "microsoft.aspnetcore.authentication.oauth.1.1.1.nupkg.sha512",
         "microsoft.aspnetcore.authentication.oauth.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Twitter/1.1.1": {
+      "sha512": "KlaCpTWGkvTh+Aw6y4qSNPHroSSRIufYCiuRMIB4rMVeUeBcED7meHquvDECrwNVKZ1ud9XeX/4UwreGXlB+Dw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.twitter/1.1.1",
+      "files": [
+        "lib/net451/Microsoft.AspNetCore.Authentication.Twitter.dll",
+        "lib/net451/Microsoft.AspNetCore.Authentication.Twitter.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Twitter.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Twitter.xml",
+        "microsoft.aspnetcore.authentication.twitter.1.1.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.twitter.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authorization/1.1.1": {
@@ -11172,6 +11251,9 @@
       "Microsoft.AspNetCore >= 1.0.4",
       "Microsoft.AspNetCore.Authentication.Cookies >= 1.1.1",
       "Microsoft.AspNetCore.Authentication.Facebook >= 1.1.1",
+      "Microsoft.AspNetCore.Authentication.Google >= 1.1.1",
+      "Microsoft.AspNetCore.Authentication.MicrosoftAccount >= 1.1.1",
+      "Microsoft.AspNetCore.Authentication.Twitter >= 1.1.1",
       "Microsoft.AspNetCore.Authorization >= 1.1.1",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 1.0.2",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 1.0.2",
@@ -11252,6 +11334,14 @@
             "target": "Package",
             "version": "1.0.3"
           },
+          "Microsoft.AspNetCore.Authentication.Twitter": {
+            "target": "Package",
+            "version": "1.1.1"
+          },
+          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+            "target": "Package",
+            "version": "1.1.1"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "1.0.2"
@@ -11272,6 +11362,10 @@
           "SendGrid": {
             "target": "Package",
             "version": "9.2.0"
+          },
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "1.1.1"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",

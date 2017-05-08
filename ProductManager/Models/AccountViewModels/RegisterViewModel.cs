@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ProductManager.Models.AccountViewModels
 {
@@ -20,5 +23,11 @@ namespace ProductManager.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //testing
+        [Display(Name = "User Role")]
+        public List<SelectListItem> UserRoles { get; set; }
+        public IdentityRole Role { get; set; }
+        public string RoleName { get; set; }
     }
 }
