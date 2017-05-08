@@ -6,5 +6,16 @@
             @Model.Price.ToString("c")
         </span>
     </h3>
-    <span class="lead">@Model.Description</span>
+    <form id="@Model.Id" asp-action="AddToCart"
+          asp-controller="Cart" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" name="returnUrl"
+               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="lead">
+            @Model.Description
+            <button type="submit" class="btn btn-success btn-sm pull-right">
+                Add To Cart
+            </button>
+        </span>
+    </form>
 </div>

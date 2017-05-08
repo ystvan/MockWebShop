@@ -6,5 +6,4 @@ C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\Product
 C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\ProductManager\obj\Debug\netcoreapp1.0\ProductManager.AssemblyInfo.cs
 C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\ProductManager\obj\Debug\netcoreapp1.0\ProductManager.dll
 C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\ProductManager\obj\Debug\netcoreapp1.0\ProductManager.pdb
-C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\ProductManager\obj\Debug\netcoreapp1.0\UserSecretsAssemblyInfo.cs
 C:\Users\IstvanMarki\documents\visual studio 2017\Projects\MockyWebStore\ProductManager\obj\Debug\netcoreapp1.0\ProductManager.csprojResolveAssemblyReference.cache

@@ -65,6 +65,8 @@ namespace ProductManager
                     .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
+            services.AddMemoryCache();
+            services.AddSession();
 
             //Account lockout for protecting against brute force attacks
             services.Configure<IdentityOptions>(options =>
@@ -78,6 +80,8 @@ namespace ProductManager
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             //Adding SendGrid and Twilio services for 2FA
             services.Configure<SMSoptions>(Configuration);
@@ -111,7 +115,7 @@ namespace ProductManager
             });
 
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseIdentity();
             app.UseFacebookAuthentication(new FacebookOptions
             {
