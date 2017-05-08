@@ -77,6 +77,7 @@ namespace ProductManager
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<IProductRepository, EFProductRepository>();
 
             //Adding SendGrid and Twilio services for 2FA
             services.Configure<SMSoptions>(Configuration);
@@ -141,6 +142,7 @@ namespace ProductManager
                     "default",
                     "{controller=Home}/{action=Index}/{id?}");
             });
+            SeedData.EnsurePopulated(app);
         }
     }
 }
