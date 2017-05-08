@@ -144,6 +144,11 @@ namespace ProductManager
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    "Error", 
+                    "Error",
+                    new { controller = "Error", action = "Error" });
+
+                routes.MapRoute(
                     null,
                     "{category}/Page{page:int}",
                     new {controller = "Product", action = "List"});

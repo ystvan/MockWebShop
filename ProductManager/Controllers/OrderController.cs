@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductManager.Models;
 
@@ -18,8 +19,13 @@ namespace ProductManager.Controllers
             _repository = repoService;
             _cart = cartService;
         }
+
+        [Authorize]
         public ViewResult List() => View(_repository.Orders.Where(o => !o.Shipped));
+
+
         [HttpPost]
+        [Authorize]
         public IActionResult MarkShipped(int orderID)
         {
             Order order = _repository.Orders.FirstOrDefault(o => o.OrderID == orderID);

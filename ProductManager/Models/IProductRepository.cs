@@ -9,5 +9,6 @@ namespace ProductManager.Models
     {
         IEnumerable<Product> Products { get; }
         void SaveProduct(Product product);
+        Product DeleteProduct(int productID);
     }
 }
