@@ -12,42 +12,37 @@ namespace ProductManager.Controllers
     public class CartController : Controller
     {
         private IProductRepository _repository;
+        private Cart _cart;
 
-        public CartController(IProductRepository repo)
+        public CartController(IProductRepository repo, Cart cartService)
         {
             _repository = repo;
+            _cart = cartService;
         }
 
         public ViewResult Index(string returnUrl)
         {
             return View(new CartIndexViewModel
             {
-                Cart = GetCart(),
+                Cart = _cart,
                 ReturnUrl = returnUrl
             });
         }
-        public RedirectToActionResult AddToCart(int productId, string returnUrl)
+        public RedirectToActionResult AddToCart(Product selectedProduct, string returnUrl)
         {
-            Product product = _repository.Products
-            .FirstOrDefault(p => p.Id == productId);
+            Product product = _repository.Products.FirstOrDefault(p => p.Id == selectedProduct.Id);
             if (product != null)
             {
-                Cart cart = GetCart();
-                cart.AddItem(product, 1);
-                SaveCart(cart);
+                _cart.AddItem(product, 1);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        public RedirectToActionResult RemoveFromCart(int productId,
-        string returnUrl)
+        public RedirectToActionResult RemoveFromCart(int productId, string returnUrl)
         {
-            Product product = _repository.Products
-            .FirstOrDefault(p => p.Id == productId);
+            Product product = _repository.Products.FirstOrDefault(p => p.Id == productId);
             if (product != null)
             {
-                Cart cart = GetCart();
-                cart.RemoveLine(product);
-                SaveCart(cart);
+                _cart.RemoveLine(product);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
