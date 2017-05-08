@@ -1,10 +1,27 @@
-﻿@model IEnumerable<Product>
-
-@foreach (var p in Model)
-{
-    <div>
-        <h3>@p.Name</h3>
-        <p>@p.Description</p>
-        <h4>@p.Price.ToString("c")</h4>
+﻿@model ProductsListViewModel
+<br />
+<div class="row panel">
+    <div id="categories" class="col-xs-3">
+        Put something useful here later
     </div>
-}
+    <div class="col-xs-8">
+
+        @foreach (var p in Model.Products)
+        {
+            <div class="well">
+                <h3>
+                    <strong>@p.Name</strong>
+                    <span class="pull-right label label-primary">
+                        @p.Price.ToString("c")
+                    </span>
+                </h3>
+                <span class="lead">@p.Description</span>
+            </div>
+        }
+
+        <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-default"
+             page-class-selected="btn-primary" class="btn-group pull-right">
+        </div>
+    </div>
+</div>

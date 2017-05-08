@@ -139,6 +139,11 @@ namespace ProductManager
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    "pagination",
+                    "Products/Page{page}",
+                    new {Controller = "Product", Action = "List"});
+
+                routes.MapRoute(
                     "default",
                     "{controller=Home}/{action=Index}/{id?}");
             });
