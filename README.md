@@ -39,7 +39,8 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
   dotnet run
   </pre>
 </li>
-<li>Preferred IDE: Visual Studio 2017</li>
+<li>Preferred IDE: Visual Studio 2017</li><br>
+<li>Since <img src="https://cdn.worldvectorlogo.com/logos/google-chrome-1.svg" height="10" width="auto"> vrsion 58 and higher<strong>does not</strong> support self signed certificates, I strongly recommend to use <img src="https://cdn.worldvectorlogo.com/logos/microsoft-edge.svg" height="10" width="auto"> browser for this project</li>
 </ul>
 
 ### btw, GitHub now supports emojis...
