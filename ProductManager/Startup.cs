@@ -82,6 +82,7 @@ namespace ProductManager
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IOrderRepository, EFOrderRepository>();
 
             //Adding SendGrid and Twilio services for 2FA
             services.Configure<SMSoptions>(Configuration);

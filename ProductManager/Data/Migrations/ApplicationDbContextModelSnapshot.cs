@@ -172,6 +172,59 @@ namespace ProductManager.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("ProductManager.Models.CartLine", b =>
+                {
+                    b.Property<int>("CartLineID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("OrderID");
+
+                    b.Property<int?>("ProductId");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("CartLineID");
+
+                    b.HasIndex("OrderID");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CartLine");
+                });
+
+            modelBuilder.Entity("ProductManager.Models.Order", b =>
+                {
+                    b.Property<int>("OrderID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("City")
+                        .IsRequired();
+
+                    b.Property<string>("Country")
+                        .IsRequired();
+
+                    b.Property<bool>("GiftWrap");
+
+                    b.Property<string>("Line1")
+                        .IsRequired();
+
+                    b.Property<string>("Line2");
+
+                    b.Property<string>("Line3");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("State")
+                        .IsRequired();
+
+                    b.Property<string>("Zip");
+
+                    b.HasKey("OrderID");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("ProductManager.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -225,6 +278,17 @@ namespace ProductManager.Data.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ProductManager.Models.CartLine", b =>
+                {
+                    b.HasOne("ProductManager.Models.Order")
+                        .WithMany("Lines")
+                        .HasForeignKey("OrderID");
+
+                    b.HasOne("ProductManager.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
                 });
         }
     }

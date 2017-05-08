@@ -1,5 +1,8 @@
 ﻿@model ProductsListViewModel
 <br />
+<div class="pull-right">
+    @await Component.InvokeAsync("CartSummary")
+</div>
 <div class="row panel">
     <div id="categories" class="col-xs-3">
         @await Component.InvokeAsync("NavigationMenu")
