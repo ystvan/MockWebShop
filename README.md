@@ -46,6 +46,7 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 <li>Confirmation email or SMS if the order is shipped</li>
 <li>Many more to get closer to a real e-commerce site...</li>
 </ul>
+
 # How to Run & Deploy
 <ul>
 <li>
