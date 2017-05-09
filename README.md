@@ -22,10 +22,30 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 <li>Auth-Auth: ASP.NET Core MVC: <strong>Authentication</strong> and Role Based <strong>Authorisation</strong> with Identity</li>
 <li>ASP.NET Core WebAPI with Entity Framework Core, full CRUD operations</li>
 <li>Self-Signed SSL certificate and HTTPS</li>
-<li>Live help chat with a fake customer service chatbot</li>
-<li>Basic Bootstrap</li>
+<li>Live help chat with a fake customer service chatbot (to be implemented...)</li>
+<li>Basic Bootstrap from Bootswatch and Font Awesome</li>
 </ul>
 
+# Ok, now tell me What does it do?
+## The happy-path:
+<ul>
+<li>New user can register with their email address or with one of them popular social media accounts</li>
+<li>If it's just a plain email address, they need to validate their account prior to login with the confirmation email</li>
+<li>During registration they can select the required user roles and permissions to the app</li>
+<li>Optional Two Factor Authentication (2FA) set up with mobile phone number via SMS</li>
+<li>A "Customer" users can browse the webshop, add products to the shopping cart and proceed to checkout</li>
+<li>During the checkout process they fill out a delivery form and confirm their order</li>
+<li>The "Employee" users can check the orders and "ship" the products also "Create, Read, Update, Delete" the products database</li>
+<li>The "Admin" users can do all the above, in addition the have full CRUD controll over the Users and Permissions database</li>
+</ul>
+
+## Wuold be nice to have, later on might be implemented:
+<ul>
+<li>Connection between user accounts and order history</li>
+<li>Marketing email to users by price changes (discounts)</li>
+<li>Confirmation email or SMS if the order is shipped</li>
+<li>Many more to get closer to a real e-commerce site...</li>
+</ul>
 # How to Run & Deploy
 <ul>
 <li>
