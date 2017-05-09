@@ -29,14 +29,14 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 # Ok, now tell me What does it do?
 ## The happy-path:
 <ul>
-<li>New user can register with their email address or with one of them popular social media accounts</li>
+<li>New users can register with their email address or with one of them popular social media accounts</li>
 <li>If it's just a plain email address, they need to validate their account prior to login with the confirmation email</li>
 <li>During registration they can select the required user roles and permissions to the app</li>
 <li>Optional Two Factor Authentication (2FA) set up with mobile phone number via SMS</li>
 <li>A "Customer" users can browse the webshop, add products to the shopping cart and proceed to checkout</li>
 <li>During the checkout process they fill out a delivery form and confirm their order</li>
-<li>The "Employee" users can check the orders and "ship" the products also "Create, Read, Update, Delete" the products database</li>
-<li>The "Admin" users can do all the above, in addition the have full CRUD controll over the Users and Permissions database</li>
+<li>The "Employee" users can check the orders and "ship" the products also "Create, Read, Update, Delete" the Products database</li>
+<li>The "Admin" users can do all the above, in addition they have full CRUD controll over the Users and Permissions database</li>
 </ul>
 
 ## Wuold be nice to have, later on might be implemented:
