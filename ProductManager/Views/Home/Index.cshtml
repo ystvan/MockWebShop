@@ -15,20 +15,64 @@ else
                        u.HasClaim(c => c.Type == ClaimTypes.Name)).FindFirst(ClaimTypes.Name).Value
     </h1>
     <p>
-        Congratulations, you have been successfully validated as a user!
+        Congratulations, you have been successfully validated!
     </p>
 }
 
 @if (await AuthorizationService.AuthorizeAsync(User, "AdministratorOnly"))
 {
-    <p>This paragraph is displayed because you fulfilled AdministratorOnly Policy.</p>
 
+    <div class="text-center" name="AdminControlArea">
+        <ul style="list-style-type:none">
+            <li>
+                <h1><a>User Administration Options</a></h1>
+            </li>
+        </ul>
+        <br />
+        <br />
+        <a asp-controller="Admin" asp-action="Index" class="btn btn-warning">Edit User Accounts</a>
+        <a asp-controller="RoleAdmin" asp-action="Index" class="btn btn-danger">Manage User Roles</a>
+        <ul style="list-style-type:none">
+            <li>
+                <h1><a>Product Administration Options</a></h1>
+            </li>
+        </ul>
+        <br />
+        <br />
+        <a asp-controller="ProductAdmin" asp-action="Index" class="btn btn-danger">Product Administration Page</a>
+        <a asp-controller="Order" asp-action="List" class="btn btn-warning">Check product orders</a>
+    </div>
 
-    <p>Select an Admin Option:</p>
-    <li>
-        <a asp-area="" asp-controller="Admin" asp-action="Index">Edit User Accounts</a>
-    </li>
-    <li>
-        <a asp-area="" asp-controller="RoleAdmin" asp-action="Index">Manage User Roles</a>
-    </li>
+}
+
+@if (await AuthorizationService.AuthorizeAsync(User, "EmloyeeOnly"))
+{
+    <div class="text-center" name="EmployeeControlArea">
+        <ul style="list-style-type:none">
+            <li>
+                <h1><a>Product Administration Options</a></h1>
+            </li>
+        </ul>
+        <br />
+        <br />
+        <a asp-controller="ProductAdmin" asp-action="Index" class="btn btn-danger">Product Administration Page</a>
+        <a asp-controller="Order" asp-action="List" class="btn btn-warning">Check product orders</a>
+    </div>
+}
+ 
+@if (await AuthorizationService.AuthorizeAsync(User, "CustomerOnly"))
+{
+    <div class="text-center" name="EmployeeControlArea">
+        <ul style="list-style-type:none">
+            <li>
+                <h1><a>Check out Our Awesome E-Shop!!</a></h1>
+            </li>
+        </ul>
+        <br />
+        <br />
+        <a asp-controller="Product" asp-action="List" class="btn btn-success">I wanna spend some $$$</a>
+        <a asp-controller="Order" asp-action="List" class="btn btn-info disabled">My Order History</a>
+         
+    </div>
+
 }

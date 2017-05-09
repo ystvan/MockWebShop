@@ -1,8 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
     <title>@ViewBag.Title</title>
     <style>
         .input-validation-error {
@@ -15,14 +18,42 @@
     </script>
     <script asp-src-include="lib/jquery-validation-unobtrusive/**/*.min.js"></script>
 </head>
-<body class="panel panel-default">
-    <div class="panel-heading"><h4>@ViewBag.Title</h4></div>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ProductManager</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+                @await Html.PartialAsync("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+<div class="panel-heading"><h4>@ViewBag.Title</h4>
+</div>
 <div class="panel-body">
     @if (TempData["message"] != null)
     {
         <div class="alert alert-success">@TempData["message"]</div>
     }
     @RenderBody()
+</div>
+<hr />
+<div class="container body-content">
+    <footer>
+        <p>&copy; 2017 - ProductManager</p>
+    </footer>
 </div>
 </body>
 </html>

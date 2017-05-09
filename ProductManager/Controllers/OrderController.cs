@@ -8,6 +8,7 @@ using ProductManager.Models;
 
 namespace ProductManager.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private IOrderRepository _repository;

@@ -8,7 +8,7 @@ using ProductManager.Models;
 
 namespace ProductManager.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admins, Employees")]
     public class ProductAdminController : Controller
     {
         private IProductRepository _repository;

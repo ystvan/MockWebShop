@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProductManager.Controllers
 {
+    
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -14,19 +15,7 @@ namespace ProductManager.Controllers
         {
             return View();
         }
-
-        [Authorize(Roles = "Admins")]
-        public IActionResult Admin()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Admins")]
-        public IActionResult RoleAdmin()
-        {
-            return View();
-        }
-
+        
         public IActionResult Error()
         {
             return View();
