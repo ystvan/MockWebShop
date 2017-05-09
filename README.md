@@ -39,7 +39,7 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 <li>The "Admin" users can do all the above, in addition they have full CRUD controll over the Users and Permissions database</li>
 </ul>
 
-## Wuold be nice to have, later on might be implemented:
+## Would be nice to have, later on might be implemented:
 <ul>
 <li>Connection between user accounts and order history</li>
 <li>Marketing email to users by price changes (discounts)</li>
