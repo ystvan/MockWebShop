@@ -45,6 +45,8 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 <li>Marketing email to users by price changes (discounts)</li>
 <li>Confirmation email or SMS if the order is shipped</li>
 <li>Many more to get closer to a real e-commerce site...</li>
+<li>Connect the API to make the prodeuct more light-weight</li>
+<li>Change SQL to MongoDB</li>
 </ul>
 
 # How to Run & Deploy
