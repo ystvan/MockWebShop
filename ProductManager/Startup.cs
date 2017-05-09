@@ -49,7 +49,9 @@ namespace ProductManager
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdministratorOnly", policy => policy.RequireRole("Admins"));
-                //options.AddPolicy("EmployeeId", policy => policy.RequireClaim("EmployeeId"));
+                options.AddPolicy("EmloyeeOnly", policy => policy.RequireRole("Employees"));
+                options.AddPolicy("CustomerOnly", policy => policy.RequireRole("Customers"));
+                
             });
 
             services.AddMvc(options =>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductManager.Infrastructure;
 using ProductManager.Models;
@@ -9,6 +10,7 @@ using ProductManager.Models.ProductViewModels;
 
 namespace ProductManager.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private IProductRepository _repository;
