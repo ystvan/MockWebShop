@@ -8,16 +8,16 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 ## Requirements passed as per below:
 
 <ul>
-<li>Two factor Authentication via Twillio </li><br>
+<li>Two factor Authentication via Twillio* </li><br>
 <img src="https://cdn.worldvectorlogo.com/logos/twilio-2.svg" height="50" width="auto"><br>
-<li>External Authentication Factor via Facebook, Twitter, Microsoft, Google</li><br>
+<li>External Authentication Factor via Facebook, Twitter, Microsoft, Google*</li><br>
 <span>
 <img src="https://cdn.worldvectorlogo.com/logos/facebook.svg" height="50" width="auto">
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Twitter_2010_logo_-_from_Commons.svg/798px-Twitter_2010_logo_-_from_Commons.svg.png" height="50" width="auto">
 <img src="https://cdn.worldvectorlogo.com/logos/microsoft.svg" height="50" width="auto">
 <img src="https://cdn.worldvectorlogo.com/logos/google-2015.svg" height="50" width="auto"></span>
 <br>
-<li>Email address validation upon new user registration and password resets</li><br>
+<li>Email address validation upon new user registration and password resets*</li><br>
 <img src="https://cdn.worldvectorlogo.com/logos/sendgrid.svg" height="50" width="auto"><br>
 <li>Auth-Auth: ASP.NET Core MVC: <strong>Authentication</strong> and Role Based <strong>Authorisation</strong> with Identity</li>
 <li>ASP.NET Core WebAPI with Entity Framework Core, full CRUD operations</li>
@@ -65,6 +65,8 @@ lecturer and supervisor: <strong>Zuhair Haroon Khan</strong> (Adjunkt / Assistan
 <li>Preferred IDE: Visual Studio 2017</li><br>
 <li>Since <img src="https://cdn.worldvectorlogo.com/logos/google-chrome-1.svg" height="20" width="auto"> version 58 and higher <strong>does not</strong> support self signed certificates, I strongly recommend to use <img src="https://cdn.worldvectorlogo.com/logos/microsoft-edge.svg" height="20" width="auto"> browser for this project</li>
 </ul>
+
+### *FYI: you need to use your own keys
 
 ### btw, GitHub now supports emojis...
 :octocat: :alien: :see_no_evil: :hear_no_evil: :speak_no_evil: :rage2: :man_with_turban:
